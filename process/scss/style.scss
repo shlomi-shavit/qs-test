@@ -1,0 +1,363 @@
+/*----------------------
+  TABLE OF CSS CONTENT
+------------------------
+  [*] Reset
+  [1] Variables & Mixins
+  [2] Top menu
+  [3] Main banner
+  [4] Container
+  [5] slider
+  [*]
+*/
+
+/* ------------------
+[*] Reset
+-------------------*/
+@import url('reset.css');
+
+/* ---------------------
+[1] Variables & mixins
+----------------------*/
+$grid-width: 1200px;
+$header-height: 40px;
+$image-slider-width: 460px;
+$header-bg-color: #4d4d4d;
+$header-color: #818181;
+$slider-item: #eeeeee;
+$slider-selected-item: #ebebec;
+$prev-next-btns: #f4f4f4;
+$black: #000; // footer opacity:30
+$white: #fff;
+$order-btn: #f5d70a;
+$font-color: #4f4f4f;
+$font-color-dark-grey: #a8a8a8;
+$font-color-middle-grey: #f1f1f1;
+$font-color-ligth-grey: #f9f9f9;
+$slider-btns: #567edd;
+
+// ## Breakpoints
+$mobile: 767px;
+$desktop: 768px;
+
+// media query function
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media only screen and (max-width: $mobile) {
+      @content;
+    }
+  } @else if $media == desktop {
+    @media only screen and (min-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+/* ------------------
+[2] Top menu
+-------------------*/
+.top-menu {
+  height: $header-height;
+  color: $header-color;
+  background-color: $header-bg-color;
+  box-sizing: border-box;
+  border: solid 1px $header-color;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  &-btn {
+    padding: 0 30px;
+    line-height: $header-height;
+    border-right: solid 1px $header-color;
+    cursor: pointer;
+    @include respond-to(mobile) {
+      padding: 0 20px;
+    }
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  &-btn-arrow {
+    border: solid $header-color;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-left: 17px;
+    position: relative;
+    top: -2px;
+  }
+}
+
+/* ------------------
+[3] Main banner
+-------------------*/
+.main-banner {
+  background-color: $black;
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  filter: grayscale(100%);
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: 700px;
+    display: block;
+    background: linear-gradient(to right, #000 -10%, transparent, #000 110%);
+    position: absolute;
+    left: 0;
+    @include respond-to(mobile) {
+      display: none;
+    }
+  }
+
+  &-wrapper {
+    width: 100%;
+    max-width: $grid-width;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    padding: 0 10px;
+  }
+
+  &-content {
+    font-size: 100%;
+    max-width: 600px;
+    @include respond-to(mobile) {
+      font-size: 80%;
+    }
+
+    h1 {
+      font-size: 3em;
+      font-weight: bold;
+      color: $white;
+    }
+
+    h2 {
+      font-size: 1em;
+      color: $font-color-dark-grey;
+      line-height: 28px;
+      padding-bottom: 30px;
+      position: relative;
+      margin-bottom: 20px;
+      &:before {
+        content: "";
+        width: 100px;
+        height: 1px;
+        background: $header-color;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+
+    p {
+      font-size: 1em;
+      color: $font-color-ligth-grey;
+      line-height: 20px;
+    }
+  }
+}
+
+.logo {
+  width: 70px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  @include respond-to(desktop) {
+    left: 50px;
+    cursor: pointer;
+  }
+}
+
+/* ------------------
+[4] Container
+-------------------*/
+
+/* ------------------
+[5] slider
+-------------------*/
+.slider {
+  &-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    max-width: $grid-width;
+    width: 100%;
+    margin: auto;
+    padding: 70px 0;
+    @include respond-to(desktop) {
+      flex-direction: row;
+    }
+  }
+
+  &-wrapper {
+    flex: 2;
+    @include respond-to(desktop) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &-image-container {
+    display: flex;
+    padding: 0 5px;
+    align-items: center;
+    position: relative;
+    @include respond-to(desktop) {
+      display: block;
+      order: 2
+    }
+  }
+
+  &-title {
+    font-size: 2em;
+    padding: 10px 5px;
+  }
+
+  &-content {
+    padding: 10px 5px;
+  }
+
+  &-main-image {
+    width: 100%;
+    height: 100%;
+    @include respond-to(desktop) {
+      max-width: $image-slider-width;
+    }
+  }
+
+  &-btns {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: space-between;
+    left: 0;
+    @include respond-to(desktop) {
+      position: static;
+      justify-content: initial;
+      margin-top: 25px;
+    }
+  }
+
+  &-btn {
+    height: 70px;
+    width: 30px;
+    background-color: #567edd;
+    display: flex;
+    align-items: center;
+    color: $white;
+    justify-content: center;
+    position: relative;
+    background-color: $slider-btns;
+    cursor: pointer;
+    @include respond-to(desktop) {
+      border-radius: initial;
+      border: solid 1px $slider-selected-item;
+      height: 40px;
+      margin-right: 2px;
+      width: 115px;
+      background-color: $font-color-middle-grey;
+      color: $header-color;
+      font-weight: bold;
+      padding: 0 15px;
+      justify-content: space-between;
+      text-transform: uppercase;
+      font-size: .8em;
+      width: 83px;;
+    }
+
+    &.prev-btn {
+      @include respond-to(mobile) {
+        border-bottom-right-radius: 90px;
+        border-top-right-radius: 90px;
+      }
+    }
+
+    &.next-btn {
+      @include respond-to(mobile) {
+        border-bottom-left-radius: 90px;
+        border-top-left-radius: 90px;
+      }
+    }
+
+    span {
+      display: none;
+      @include respond-to(desktop) {
+        display: block;
+      }
+    }
+  }
+}
+
+.thumbnail {
+  &-container {
+    width: 100%;
+    padding: 10px 0;
+    box-sizing: border-box;
+    border-top: solid 1px $font-color-dark-grey;
+    @include respond-to(desktop) {
+      order: 2;
+      display: flex;
+      flex: 1;
+      border-top: 0;
+      border-left: solid 1px $font-color-dark-grey;
+      max-width: 375px;
+      padding-left: 5px;
+    }
+
+    ul {
+      display: flex;
+      ustify-content: center;
+      align-items: center;
+      @include respond-to(desktop) {
+        display: initial;
+        width: 100%;
+      }
+    }
+
+    li {
+      padding: 5px;
+      border: solid 1px transparent;
+      @include respond-to(desktop) {
+        margin: 5px;
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+      }
+      &.active {
+        background-color: $font-color-middle-grey;
+        border: solid 1px #333;
+        border-radius: 5px;
+        padding: 5px;
+      }
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      @include respond-to(desktop) {
+        max-width: 100px;
+        height: 100%;
+        margin-right: 15px;
+      }
+    }
+
+    h2 {
+      @include respond-to(mobile) {
+        display: none;
+      }
+    }
+  }
+}
+
+/* ------------------
+[3] Container
+-------------------*/
+

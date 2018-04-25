@@ -1,0 +1,125 @@
+/*----------------------
+  TABLE OF CSS CONTENT
+------------------------
+  [*] Reset
+  [1] Variables & Mixins
+  [2] Top menu
+  [3] Main banner
+  [4] Container
+  [5] slider
+  [*]
+*/
+/* ------------------
+[*] Reset
+-------------------*/
+@import url("reset.css");
+/* ---------------------
+[1] Variables & mixins
+----------------------*/
+/* ------------------
+[2] Top menu
+-------------------*/
+.top-menu { height: 40px; color: #818181; background-color: #4d4d4d; box-sizing: border-box; border: solid 1px #818181; display: flex; justify-content: flex-end; width: 100%; }
+
+.top-menu-btn { padding: 0 30px; line-height: 40px; border-right: solid 1px #818181; cursor: pointer; }
+
+@media only screen and (max-width: 767px) { .top-menu-btn { padding: 0 20px; } }
+
+.top-menu-btn:last-child { border: 0; }
+
+.top-menu-btn-arrow { border: solid #818181; border-width: 0 2px 2px 0; display: inline-block; padding: 3px; transform: rotate(45deg); -webkit-transform: rotate(45deg); margin-left: 17px; position: relative; top: -2px; }
+
+/* ------------------
+[3] Main banner
+-------------------*/
+.main-banner { background-color: #000; position: relative; min-height: 700px; overflow: hidden; display: flex; justify-content: center; filter: grayscale(100%); }
+
+.main-banner:before { content: ""; width: 100%; height: 700px; display: block; background: linear-gradient(to right, #000 -10%, transparent, #000 110%); position: absolute; left: 0; }
+
+@media only screen and (max-width: 767px) { .main-banner:before { display: none; } }
+
+.main-banner-wrapper { width: 100%; max-width: 1200px; margin: auto; position: absolute; left: 0; right: 0; bottom: 60px; padding: 0 10px; }
+
+.main-banner-content { font-size: 100%; max-width: 600px; }
+
+@media only screen and (max-width: 767px) { .main-banner-content { font-size: 80%; } }
+
+.main-banner-content h1 { font-size: 3em; font-weight: bold; color: #fff; }
+
+.main-banner-content h2 { font-size: 1em; color: #a8a8a8; line-height: 28px; padding-bottom: 30px; position: relative; margin-bottom: 20px; }
+
+.main-banner-content h2:before { content: ""; width: 100px; height: 1px; background: #818181; position: absolute; bottom: 0; }
+
+.main-banner-content p { font-size: 1em; color: #f9f9f9; line-height: 20px; }
+
+.logo { width: 70px; position: absolute; top: 20px; left: 20px; }
+
+@media only screen and (min-width: 768px) { .logo { left: 50px; cursor: pointer; } }
+
+/* ------------------
+[4] Container
+-------------------*/
+/* ------------------
+[5] slider
+-------------------*/
+.slider-container { box-sizing: border-box; display: flex; flex-direction: column; max-width: 1200px; width: 100%; margin: auto; padding: 70px 0; }
+
+@media only screen and (min-width: 768px) { .slider-container { flex-direction: row; } }
+
+.slider-wrapper { flex: 2; }
+
+@media only screen and (min-width: 768px) { .slider-wrapper { display: flex; flex-direction: column; } }
+
+.slider-image-container { display: flex; padding: 0 5px; align-items: center; position: relative; }
+
+@media only screen and (min-width: 768px) { .slider-image-container { display: block; order: 2; } }
+
+.slider-title { font-size: 2em; padding: 10px 5px; }
+
+.slider-content { padding: 10px 5px; }
+
+.slider-main-image { width: 100%; height: 100%; }
+
+@media only screen and (min-width: 768px) { .slider-main-image { max-width: 460px; } }
+
+.slider-btns { display: flex; position: absolute; width: 100%; justify-content: space-between; left: 0; }
+
+@media only screen and (min-width: 768px) { .slider-btns { position: static; justify-content: initial; margin-top: 25px; } }
+
+.slider-btn { height: 70px; width: 30px; background-color: #567edd; display: flex; align-items: center; color: #fff; justify-content: center; position: relative; background-color: #567edd; cursor: pointer; }
+
+@media only screen and (min-width: 768px) { .slider-btn { border-radius: initial; border: solid 1px #ebebec; height: 40px; margin-right: 2px; width: 115px; background-color: #f1f1f1; color: #818181; font-weight: bold; padding: 0 15px; justify-content: space-between; text-transform: uppercase; font-size: .8em; width: 83px; } }
+
+@media only screen and (max-width: 767px) { .slider-btn.prev-btn { border-bottom-right-radius: 90px; border-top-right-radius: 90px; } }
+
+@media only screen and (max-width: 767px) { .slider-btn.next-btn { border-bottom-left-radius: 90px; border-top-left-radius: 90px; } }
+
+.slider-btn span { display: none; }
+
+@media only screen and (min-width: 768px) { .slider-btn span { display: block; } }
+
+.thumbnail-container { width: 100%; padding: 10px 0; box-sizing: border-box; border-top: solid 1px #a8a8a8; }
+
+@media only screen and (min-width: 768px) { .thumbnail-container { order: 2; display: flex; flex: 1; border-top: 0; border-left: solid 1px #a8a8a8; max-width: 375px; padding-left: 5px; } }
+
+.thumbnail-container ul { display: flex; ustify-content: center; align-items: center; }
+
+@media only screen and (min-width: 768px) { .thumbnail-container ul { display: initial; width: 100%; } }
+
+.thumbnail-container li { padding: 5px; border: solid 1px transparent; }
+
+@media only screen and (min-width: 768px) { .thumbnail-container li { margin: 5px; display: flex; align-items: center; text-transform: capitalize; } }
+
+.thumbnail-container li.active { background-color: #f1f1f1; border: solid 1px #333; border-radius: 5px; padding: 5px; }
+
+.thumbnail-container img { width: 100%; display: block; }
+
+@media only screen and (min-width: 768px) { .thumbnail-container img { max-width: 100px; height: 100%; margin-right: 15px; } }
+
+@media only screen and (max-width: 767px) { .thumbnail-container h2 { display: none; } }
+
+/* ------------------
+[3] Container
+-------------------*/
+
+/*# sourceMappingURL=style.css.map */
